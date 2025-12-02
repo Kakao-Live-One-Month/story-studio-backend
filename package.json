@@ -5,10 +5,10 @@
   "main": "dist/api/index.js",
   "scripts": {
     "dev": "nodemon",
-    "build": "tsc && node scripts/copy-api.js",
+    "build": "tsc && node scripts/copy-api.js && mkdir -p public",
     "start": "node dist/api/index.js",
     "typecheck": "tsc --noEmit",
-    "clean": "rm -rf dist api"
+    "clean": "rm -rf dist api public"
   },
   "dependencies": {
     "cloudinary": "^2.0.0",
