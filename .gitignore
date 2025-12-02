@@ -81,3 +81,5 @@ firebase-adminsdk*.json
 
 # Local development
 .local
+
+firebase-service-account.json

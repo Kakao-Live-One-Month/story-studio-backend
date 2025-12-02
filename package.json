@@ -1,36 +1,29 @@
 {
   "name": "story-studio-backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "AI Story Generation API",
+  "main": "dist/api/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon",
+    "build": "tsc",
+    "start": "node dist/api/index.js",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Kakao-Live-One-Month/story-studio-backend.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Kakao-Live-One-Month/story-studio-backend/issues"
-  },
-  "homepage": "https://github.com/Kakao-Live-One-Month/story-studio-backend#readme",
-  "description": "",
   "dependencies": {
-    "cloudinary": "^2.8.0",
+    "cloudinary": "^2.0.0",
     "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "firebase-admin": "^13.6.0",
-    "openai": "^6.9.1"
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "firebase-admin": "^12.0.0",
+    "openai": "^4.20.0"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.19",
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.5",
-    "@types/node": "^24.10.1",
-    "nodemon": "^3.1.11",
+    "@types/node": "^20.10.0",
+    "nodemon": "^3.0.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.3.3"
   }
 }
