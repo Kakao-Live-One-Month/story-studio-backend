@@ -10,6 +10,15 @@ import {
 
 const router = Router();
 
+router.get('/health', (req: Request, res: Response) => {
+  res.json({
+    status: 'ok',
+    service: 'payment',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development',
+  });
+});
+
 // POST /api/payment/checkout
 router.post('/checkout', authMiddleware, async (req: Request, res: Response) => {
   try {

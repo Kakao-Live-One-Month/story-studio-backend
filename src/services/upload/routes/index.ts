@@ -24,6 +24,15 @@ const upload = multer({
   },
 });
 
+router.get('/health', (req: Request, res: Response) => {
+    res.json({
+      status: 'ok',
+      service: 'upload',
+      timestamp: new Date().toISOString(),
+      environment: process.env.NODE_ENV || 'development',
+    });
+  });
+
 // POST /api/upload/image
 // 물리 파일은 Cloudinary에만 저장, Firestore에는 URL만 저장
 router.post(

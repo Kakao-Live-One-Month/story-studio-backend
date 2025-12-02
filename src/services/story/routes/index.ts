@@ -7,6 +7,16 @@ import { GenerateStoryRequest, GenerateStoryResponse, Story } from '../types/sto
 
 const router = Router();
 
+// Health check
+router.get('/health', (req: Request, res: Response) => {
+  res.json({
+    status: 'ok',
+    service: 'story',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development',
+  });
+});
+
 // POST /api/story/generate
 router.post('/generate', authMiddleware, async (req: Request, res: Response) => {
   try {

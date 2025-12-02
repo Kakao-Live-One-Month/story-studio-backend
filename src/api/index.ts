@@ -1,46 +1,33 @@
-import express, { Request, Response } from 'express';
-import dotenv from 'dotenv';
-import corsMiddleware from '../shared/middleware/cors';
-import { errorHandler } from '../shared/middleware/errorHandler';
-
-// 서비스 라우트들
-import storyRoutes from '../services/story/routes/story';
-import paymentRoutes from '../services/payment/routes/payment';
-// import pdfRoutes from '../services/pdf/routes/pdf';
-import uploadRoutes from '../services/upload/routes/upload';
+import express from 'express';
+import * as dotenv from 'dotenv';
+import storyRoutes from '../services/story/routes';
+import paymentRoutes from '../services/payment/routes';
+// import pdfRoutes from '../services/pdf/routes';
+import uploadRoutes from '../services/upload/routes';
 
 dotenv.config();
 
 const app = express();
-
-// 미들웨어
-app.use(corsMiddleware);
 app.use(express.json());
 
-// 서비스 라우트
+// 라우트 등록
 app.use('/api/story', storyRoutes);
 app.use('/api/payment', paymentRoutes);
 // app.use('/api/pdf', pdfRoutes);
 app.use('/api/upload', uploadRoutes);
 
 // Health check
-app.get('/api/health', (req: Request, res: Response) => {
-  res.json({
-    status: 'ok',
-    timestamp: new Date().toISOString(),
-    environment: process.env.NODE_ENV || 'development',
-  });
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok' });
 });
 
-app.use(errorHandler);
+// Vercel Serverless용
+export default app;
 
 // 로컬 개발용
 if (require.main === module) {
   const PORT = process.env.PORT || 3001;
   app.listen(PORT, () => {
-    console.log(`🚀 API server running on http://localhost:${PORT}`);
-    console.log(`📝 Health check: http://localhost:${PORT}/api/health`);
+    console.log(`🚀 Server: http://localhost:${PORT}`);
   });
 }
-
-export default app;
