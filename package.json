@@ -4,7 +4,9 @@
   "description": "AI Story Generation API",
   "main": "dist/api/index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc && npm run copy-to-api",
+    "copy-to-api": "mkdir -p api && cp -r dist/* api/",
+    "dev": "nodemon"
   },
   "dependencies": {
     "cloudinary": "^2.0.0",
