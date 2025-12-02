@@ -4,10 +4,7 @@
   "description": "AI Story Generation API",
   "main": "dist/api/index.js",
   "scripts": {
-    "dev": "nodemon",
-    "build": "tsc",
-    "start": "node dist/api/index.js",
-    "typecheck": "tsc --noEmit"
+    "build": "tsc"
   },
   "dependencies": {
     "cloudinary": "^2.0.0",

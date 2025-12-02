@@ -1,3 +1,4 @@
+//story/routes/index.ts
 import { Router, Request, Response } from 'express';
 import { authMiddleware } from '../../../shared/middleware/auth';
 import { openai } from '../../../shared/lib/openai';
