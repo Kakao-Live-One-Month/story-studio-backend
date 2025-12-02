@@ -2,22 +2,41 @@
     "version": 2,
     "buildCommand": "npm run build",
     "installCommand": "npm install",
+    "outputDirectory": "dist",
+    "functions": {
+      "dist/services/story/api/index.js": {
+        "memory": 1024,
+        "maxDuration": 30
+      },
+      "dist/services/payment/api/index.js": {
+        "memory": 1024,
+        "maxDuration": 30
+      },
+      "dist/services/pdf/api/index.js": {
+        "memory": 1024,
+        "maxDuration": 30
+      },
+      "dist/services/upload/api/index.js": {
+        "memory": 1024,
+        "maxDuration": 30
+      }
+    },
     "rewrites": [
       {
         "source": "/api/story/(.*)",
-        "destination": "/api/story"
+        "destination": "/dist/services/story/api/index.js"
       },
       {
         "source": "/api/payment/(.*)",
-        "destination": "/api/payment"
+        "destination": "/dist/services/payment/api/index.js"
       },
       {
         "source": "/api/pdf/(.*)",
-        "destination": "/api/pdf"
+        "destination": "/dist/services/pdf/api/index.js"
       },
       {
         "source": "/api/upload/(.*)",
-        "destination": "/api/upload"
+        "destination": "/dist/services/upload/api/index.js"
       }
     ]
   }
