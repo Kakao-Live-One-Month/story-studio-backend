@@ -16,7 +16,7 @@
     "types": ["node"],
     "typeRoots": ["./node_modules/@types", "src/services/payment/types"]
   },
-  "include": ["src/**/*", "api/**/*"],  // 👈 api 폴더 포함
+  "include": ["src/**/*", "api/**/*"],
   "exclude": ["node_modules", "dist"],
   "ts-node": {
     "files": true,
