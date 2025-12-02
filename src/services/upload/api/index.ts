@@ -1,14 +1,11 @@
 import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
-import corsMiddleware from '../shared/middleware/cors';
-import { errorHandler } from '../shared/middleware/errorHandler';
+import corsMiddleware from '../../../shared/middleware/cors';
+import { errorHandler } from '../../../shared/middleware/errorHandler';
+import storyRoutes from '../../story/routes/story';
+import paymentRoutes from '../../payment/routes/payment';
 
-// 서비스 라우트들
-import storyRoutes from '../services/story/routes/story';
-import paymentRoutes from '../services/payment/routes/payment';
-// import pdfRoutes from '../services/pdf/routes/pdf';
-import uploadRoutes from '../services/upload/routes/upload';
-
+// 환경 변수 로드 (로컬 개발용)
 dotenv.config();
 
 const app = express();
@@ -17,11 +14,9 @@ const app = express();
 app.use(corsMiddleware);
 app.use(express.json());
 
-// 서비스 라우트
+// 라우트
 app.use('/api/story', storyRoutes);
 app.use('/api/payment', paymentRoutes);
-// app.use('/api/pdf', pdfRoutes);
-app.use('/api/upload', uploadRoutes);
 
 // Health check
 app.get('/api/health', (req: Request, res: Response) => {
@@ -32,7 +27,11 @@ app.get('/api/health', (req: Request, res: Response) => {
   });
 });
 
+// 에러 핸들러 (마지막에)
 app.use(errorHandler);
+
+// Vercel Serverless 용
+export default app;
 
 // 로컬 개발용
 if (require.main === module) {
@@ -42,5 +41,3 @@ if (require.main === module) {
     console.log(`📝 Health check: http://localhost:${PORT}/api/health`);
   });
 }
-
-export default app;

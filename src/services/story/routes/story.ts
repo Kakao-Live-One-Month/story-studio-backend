@@ -1,8 +1,8 @@
 import { Router, Request, Response } from 'express';
-import { authMiddleware } from '../middleware/auth';
-import { openai } from '../lib/openai';
-import { db } from '../lib/firebase';
-import admin from '../lib/firebase';
+import { authMiddleware } from '../../../shared/middleware/auth';
+import { openai } from '../../../shared/lib/openai';
+import { db } from '../../../shared/lib/firebase';
+import admin from '../../../shared/lib/firebase';
 import { GenerateStoryRequest, GenerateStoryResponse, Story } from '../types/story';
 
 const router = Router();

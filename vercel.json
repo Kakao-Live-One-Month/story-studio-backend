@@ -2,16 +2,22 @@
     "version": 2,
     "buildCommand": "npm run build",
     "installCommand": "npm install",
-    "builds": [
+    "rewrites": [
       {
-        "src": "dist/api/index.js",
-        "use": "@vercel/node"
-      }
-    ],
-    "routes": [
+        "source": "/api/story/(.*)",
+        "destination": "/api/story"
+      },
       {
-        "src": "/api/(.*)",
-        "dest": "/dist/api/index.js"
+        "source": "/api/payment/(.*)",
+        "destination": "/api/payment"
+      },
+      {
+        "source": "/api/pdf/(.*)",
+        "destination": "/api/pdf"
+      },
+      {
+        "source": "/api/upload/(.*)",
+        "destination": "/api/upload"
       }
     ]
   }
