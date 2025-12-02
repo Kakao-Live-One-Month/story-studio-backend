@@ -3,11 +3,19 @@ const path = require('path');
 
 const services = ['story', 'payment', 'pdf', 'upload'];
 const apiDir = path.join(__dirname, '..', 'api');
+const publicDir = path.join(__dirname, '..', 'public');
 
 // api 디렉토리 생성
 if (!fs.existsSync(apiDir)) {
   fs.mkdirSync(apiDir, { recursive: true });
 }
+
+// public 디렉토리 생성 및 .gitkeep 파일 추가 (Vercel 요구사항)
+if (!fs.existsSync(publicDir)) {
+  fs.mkdirSync(publicDir, { recursive: true });
+}
+// .gitkeep 파일 생성 (빈 디렉토리 방지)
+fs.writeFileSync(path.join(publicDir, '.gitkeep'), '');
 
 // 각 서비스의 index.js를 api/{service}.js로 복사
 services.forEach((service) => {
@@ -21,3 +29,5 @@ services.forEach((service) => {
     console.warn(`⚠ Source not found: ${source}`);
   }
 });
+
+console.log('✓ Build completed');
