@@ -11,7 +11,7 @@ app.use(corsMiddleware);
 app.use(express.json());
 
 // Health check
-app.get('/api/health', (req: Request, res: Response) => {
+app.get('/api/payment/health', (req: Request, res: Response) => {
   res.json({
     status: 'ok',
     service: 'payment',
