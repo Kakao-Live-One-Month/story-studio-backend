@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "AI Story Generation API",
   "main": "dist/api/index.js",
-"scripts": {
+  "scripts": {
     "dev": "nodemon",
-    "build": "tsc && npm run copy-api",
-    "copy-api": "mkdir -p api && cp -r dist/services/*/api/*.js api/ 2>/dev/null || true",
+    "build": "tsc && node scripts/copy-api.js",
     "start": "node dist/api/index.js",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist api"

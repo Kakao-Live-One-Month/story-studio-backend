@@ -2,24 +2,6 @@
     "version": 2,
     "buildCommand": "npm run build",
     "installCommand": "npm install",
-    "functions": {
-      "api/story.js": {
-        "memory": 1024,
-        "maxDuration": 30
-      },
-      "api/payment.js": {
-        "memory": 1024,
-        "maxDuration": 30
-      },
-      "api/pdf.js": {
-        "memory": 1024,
-        "maxDuration": 30
-      },
-      "api/upload.js": {
-        "memory": 1024,
-        "maxDuration": 30
-      }
-    },
     "rewrites": [
       {
         "source": "/api/story/(.*)",
