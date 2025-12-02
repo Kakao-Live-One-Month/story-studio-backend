@@ -5,19 +5,19 @@
     "rewrites": [
       {
         "source": "/api/story/(.*)",
-        "destination": "/api/story.js"
+        "destination": "/api/story"
       },
       {
         "source": "/api/payment/(.*)",
-        "destination": "/api/payment.js"
+        "destination": "/api/payment"
       },
       {
         "source": "/api/pdf/(.*)",
-        "destination": "/api/pdf.js"
+        "destination": "/api/pdf"
       },
       {
         "source": "/api/upload/(.*)",
-        "destination": "/api/upload.js"
+        "destination": "/api/upload"
       }
     ]
   }
