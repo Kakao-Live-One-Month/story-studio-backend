@@ -5,7 +5,7 @@
   "main": "dist/api/index.js",
   "scripts": {
     "build": "tsc",
-    "vercel-build": "tsc && mkdir -p public && echo '{}' > public/index.json",
+    "vercel-build": "npm run build && mkdir -p public && echo '{}' > public/index.json",
     "dev": "nodemon",
     "start": "node dist/api/index.js"
   },
